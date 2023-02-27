@@ -1,5 +1,26 @@
-const calculateTime = (date1, date2) => {
+
+
+function calculateTime(date1, date2) {
   // Given two dates, calculate and return the amount of time elapsed in years and months
+  date1 = new Date(date1);
+  date2 = new Date(date2);
+  var diff = Math.floor(date1.getTime() - date2.getTime());
+  var day = 1000 * 60 * 60 * 24;
+
+    var days = Math.floor(diff/day);
+
+    var years = Math.floor(days/365);
+
+    days = days - years*365;
+    var months = Math.floor(days/31);
+
+
+    var message = date1.toDateString() + ", " + date2.toDateString() + ": ";
+
+    message += years + " years, "
+    message += months + " months apart \n"
+
+    return message
 };
 
 // Date() formats:
